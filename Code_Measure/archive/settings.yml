@@ -1,0 +1,51 @@
+### The .yaml config for Daphnia measurement and object detection workflow
+
+### Data prep #################
+Convert_to_JPEG: False       # 
+###############################
+
+### Locations ##################################################################
+
+Original_images: /home/philipp/MarvinTestData/JPG
+## Needed for scale and eye detection and turning
+
+Eye_Annotations: /home/philipp/Master_Test_Data_vis/annotations                       
+## Needed creation of duplicates turning
+
+Duplicate_Folder: /home/philipp/Master_Test_Data_vis/duplicates 
+## Needed for detection
+
+Analysis_data: /home/philipp/Master_Test_Data_vis/Unique_Width
+### Needed for Measurements and visualization
+
+################################################################################
+
+### Visualization ####
+
+### Measurments ######
+visualize: True   
+
+### object detection #
+
+### crop all detect regions and save them
+crop: False
+
+### save visualized images with boxes drawn into them
+detection_vis: True
+
+### Scale detection #############
+
+### Conversion_factor px to mm ###
+Standard_value_px_per_µm: 2.1
+
+### Scale_mode 
+### 0 = no scale, 
+### 1 = one scale, 
+### 2 = different scales
+
+Scale_detector_mode: 0
+
+### Tesseract detection mode
+### for different settings read tesseract docs
+psm_mode: 7
+

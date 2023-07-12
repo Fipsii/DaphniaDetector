@@ -1,0 +1,71 @@
+### The .yaml config for Daphnia measurement and object detection workflow
+### using the better and refined segmentation method
+
+### Data prep #################
+Convert_to_JPEG: False       # 
+###############################
+
+### Body Width True/False ###
+
+Body_width_eval: True
+
+### Locations ##################################################################
+
+Original_images: /home/philipp/Image_repository/Daphnia_Images_Classifier_clean/longicephala
+## Needed for scale and eye detection and turning
+
+Analysis_data: /home/philipp/Longicephala_crop
+### Needed for Measurements and visualization
+
+Classifier_loc: /home/philipp/Classifier
+###Location of the Classifier for species detection
+################################################################################
+
+### Visualization ####
+
+### Measurments ######
+visualize: False   
+
+### object detection #
+
+### refine segments all detect regions and save them
+refine : True
+### Refine is strongly encouraged
+
+### Crop ## Delete (#) where cropping should be performed
+crop: True
+organs: 
+        #- Heart
+        #- Body
+        #- Head
+        #- Spina_tip
+        #- Spina_base
+        #- Brood_chamber
+        - Eye
+        - Daphnid
+        
+### save visualized images with boxes drawn into them
+detection_vis: True
+
+### Scale detection #############
+
+### Conversion_factor mm/px ###
+Conv_factor: 0.002139
+
+### Scale_mode 
+### 0 = no scale, 
+### 1 = one scale, 
+### 2 = different scales
+
+Scale_detector_mode: 0
+
+### Tesseract detection mode
+### for different settings read tesseract docs
+psm_mode: 7
+
+### Body width method
+### 3 Options: 
+### Rabus (Widest part of body)
+### Sperfeld (Width in the middle of eye-spina axis perpendicular to it)
+### Imhof (Width in the middle of eye-spina axis perpendicular to the body axis)
+Width_method: "Imhof"
