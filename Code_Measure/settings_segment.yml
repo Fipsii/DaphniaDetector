@@ -2,7 +2,7 @@
 ### using the better and refined segmentation method
 
 ### Data prep #################
-Convert_to_JPEG: False       # 
+Convert_to_JPEG: True       # 
 ###############################
 
 ### Body Width True/False ###
@@ -11,20 +11,21 @@ Body_width_eval: True
 
 ### Locations ##################################################################
 
-Original_images: /home/philipp/Image_repository/Daphnia_Images_Classifier_clean/longicephala
+Original_images: /home/philipp/Scales/Scale_eval
+#Test_Data_MA_Images_and_CSV/JPG
 ## Needed for scale and eye detection and turning
 
-Analysis_data: /home/philipp/Longicephala_crop
+Analysis_data: /home/philipp/Test_Data_Paper/TestRunPackage/
 ### Needed for Measurements and visualization
 
-Classifier_loc: /home/philipp/Classifier
+Classifier_loc: /home/philipp/Species_Classificator
 ###Location of the Classifier for species detection
 ################################################################################
 
 ### Visualization ####
 
 ### Measurments ######
-visualize: False   
+visualize: Yes   
 
 ### object detection #
 
@@ -57,7 +58,7 @@ Conv_factor: 0.002139
 ### 1 = one scale, 
 ### 2 = different scales
 
-Scale_detector_mode: 0
+Scale_detector_mode: 2
 
 ### Tesseract detection mode
 ### for different settings read tesseract docs
@@ -69,3 +70,7 @@ psm_mode: 7
 ### Sperfeld (Width in the middle of eye-spina axis perpendicular to it)
 ### Imhof (Width in the middle of eye-spina axis perpendicular to the body axis)
 Width_method: "Imhof"
+
+## Toggle Species classification
+
+Classify: True

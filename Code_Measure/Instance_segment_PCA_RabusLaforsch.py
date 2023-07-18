@@ -224,8 +224,8 @@ def point_trans(ori_point, angle, ori_shape, new_shape):
     dx = ori_point[0] - ori_shape[1] / 2.0
     dy = ori_point[1] - ori_shape[0] / 2.0
 
-    t_x = round(dx * math.cos(angle) - dy * math.sin(angle) + new_shape[1] / 2.0)
-    t_y = round(dx * math.sin(angle) + dy * math.cos(angle) + new_shape[0] / 2.0)
+    t_x = np.round(dx * math.cos(angle) - dy * math.sin(angle) + new_shape[1] / 2.0)
+    t_y = np.round(dx * math.sin(angle) + dy * math.cos(angle) + new_shape[0] / 2.0)
     return np.array((int(t_x), int(t_y)))
 
 def Measure_Width_Rabus(Rotated_Images):

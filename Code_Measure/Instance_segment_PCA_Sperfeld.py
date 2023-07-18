@@ -23,7 +23,7 @@ def PerpendicularLine_Eye_Sb(Annotations_object_detect, images_list,org_mask, vi
   import numpy as np
   import cv2 as cv2
   import matplotlib.pyplot as plt
-
+  
   data = Annotations_object_detect.copy()
   Perp_to_Image = []
   list_of_Midpoints = []
@@ -32,16 +32,14 @@ def PerpendicularLine_Eye_Sb(Annotations_object_detect, images_list,org_mask, vi
     
     img = org_mask[item]
     Row_of_Image = data.loc[data['image_id'] == images_list[item]] ### get the data for the image
-  
     #### Now we want to rotate the image and y coordinates 180 degrees in both diretions
     #### if y gets higher by rotation we want interrupt the while loop and rotate into
     #### the other direction
-  
-    try:
+    if not (pd.isna(Row_of_Image["Center_X_Sb"].iloc[0]) or pd.isna(Row_of_Image["Center_X_Eye"].iloc[0])):      
+      
       CoorEye = int(Row_of_Image["Center_X_Eye"].iloc[0]),int(Row_of_Image["Center_Y_Eye"].iloc[0])
       
       CoorSb = int(Row_of_Image["Center_X_Sb"].iloc[0]),int(Row_of_Image["Center_Y_Sb"].iloc[0])
-      
       
       ### Now find the new coordinates ## Points (X,Y). Shape (Height (Y), Width (X))
       
@@ -56,8 +54,7 @@ def PerpendicularLine_Eye_Sb(Annotations_object_detect, images_list,org_mask, vi
       #### and annotations_cropped.josn and add it to the coordinates MidY/MidX
     
       Midpoint = (MidX,MidY)
-  
-      
+
       # Now we create a line perpendicular through the midpoint like in Sperfeld et al. 2020
       
       slope = (CoorSb[1] - CoorEye[1]) / (CoorSb[0] - CoorEye[0])
@@ -125,7 +122,7 @@ def PerpendicularLine_Eye_Sb(Annotations_object_detect, images_list,org_mask, vi
       Perp_to_Image.append(rotated_image)
       list_of_Midpoints.append(TransMid)
       Rot_Angles.append(270 - np.rad2deg(angle))
-    except:
+    else:
       list_of_Midpoints.append(0)
       Perp_to_Image.append(0)
       Rot_Angles.append(0)
@@ -141,14 +138,13 @@ def Measure_Width_Sperfeld(Rotated_Images, ListofMidpoints):
   for item in range(len(Rotated_Images)):
     try:
       MidRow = ListofMidpoints[item][1] ## Y coordinate for image of midpoint
-      
       Width = np.sum(Rotated_Images[item][int(MidRow), :]) /255
       Widths.append(Width)
-      
       reshaped_row = Rotated_Images[item][int(MidRow), :].reshape(-1, 1)
-
+ 
       X_start.append(np.argmax(reshaped_row))
-      X_end.append(len(reshaped_row) - np.argmax(np.fliplr(reshaped_row)))
+      X_end.append(len(reshaped_row) - np.argmax(reshaped_row[::-1]) - 1)
+
 
     except:
       Widths.append(0)
@@ -161,5 +157,91 @@ def Measure_Width_Sperfeld(Rotated_Images, ListofMidpoints):
   
   return Widths, X_start, X_end
 
+def point_trans(ori_point, angle, ori_shape, new_shape):
+    
+    # Transfrom the point from original to rotated image.
+    # Args:
+    #    ori_point: Point coordinates in original image.
+    #    angle: Rotate angle in radians.
+    #    ori_shape: The shape of original image.
+    #    new_shape: The shape of rotated image.
+    # Returns:
+    #    Numpy array of new point coordinates in rotated image.
+    
+    import math
+    import numpy as np
 
+    dx = ori_point[0] - ori_shape[1] / 2.0
+    dy = ori_point[1] - ori_shape[0] / 2.0
+
+    t_x = round(dx * math.cos(angle) - dy * math.sin(angle) + new_shape[1] / 2.0)
+    t_y = round(dx * math.sin(angle) + dy * math.cos(angle) + new_shape[0] / 2.0)
+    return np.array((int(t_x), int(t_y)))
+
+
+def Create_Mask(anno_save_loc, parent_dir):
+  import json
+  import cv2 as cv
+  import numpy as np
+  import pandas as pd
+  # Load the COCO formatted JSON file
+  with open(anno_save_loc, 'r') as f:
+      coco_data = json.load(f)
   
+  # We have to match the image_paths and the image id's beforehand
+  image_id_to_file_name = {}
+  for image in coco_data['images']:
+    image_id_to_file_name[image['id']] = image['file_name']
+  
+  Order_of_file_names = []
+  # Loop through the annotations and print the file names
+  for annotation in coco_data['annotations']:
+    image_id = annotation['image_id']
+    file_name = image_id_to_file_name[image_id]
+    Order_of_file_names.append(file_name)
+  
+  # Loop through the annotations and extract the polygon data
+  list_of_polygons = []
+  for annotation in coco_data['annotations']:
+          segmentation = annotation['segmentation']
+          
+          ### segmentation contains more than one value. Which one is correct?
+          ### Is Refinement already applied?
+          
+          longest_polygon = max(segmentation, key=len)
+          polygon = np.array(longest_polygon, np.int32).reshape((-1, 2))
+          # Polygon is a list of (x,y) coordinates
+          list_of_polygons.append(polygon)
+          
+  List_of_Images = []      
+
+  for x in range(len(Order_of_file_names)):
+      
+    # Load the image
+    
+    image = cv.imread(parent_dir + Order_of_file_names[x])
+    try:
+      gray = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
+    except:
+      gray = image
+    # Create a mask image with the same size as the input image
+    mask = np.zeros(gray.shape, dtype=np.uint8)
+    
+    # Loop through the annotations and draw the polygons onto the mask
+    
+    cv.fillPoly(mask, [list_of_polygons[x]], (255, 255, 255))
+    
+    List_of_Images.append(mask)
+    
+    # Display the mask image
+    #import matplotlib.pyplot as plt
+    #plt.clf()
+    #plt.subplot(1,2,1)
+    #plt.imshow(mask, cmap = "gray")
+    #plt.subplot(1, 2, 2)
+    #plt.imshow(image, cmap = "gray")
+    #plt.show()
+    
+  return Order_of_file_names, List_of_Images
+
+

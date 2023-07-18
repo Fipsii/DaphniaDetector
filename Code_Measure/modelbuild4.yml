@@ -1,4 +1,4 @@
-name: tfGPULegacy2
+name: Test
 channels:
   - conda-forge
   - defaults
