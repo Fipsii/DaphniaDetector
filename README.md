@@ -3,7 +3,7 @@
 Our program is an automated pipeline for scientific analysis of animals of the genus *Daphnia*. Detailed information about development and functionality in PAPERLINK.
 This repository is the non-Docker version. We provide packages with version we installed, but functionality is dependend on the cuda version your system has.
 
-![image](/Zeichnung_4.jpg)
+![image](/Zeichnung_4.png)
 
 For the corresponding docker images go to: #####
 
