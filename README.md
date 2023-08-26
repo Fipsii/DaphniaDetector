@@ -32,6 +32,13 @@ You have the choice to run the program in CPU (in that case we recommend the CPU
 to set flags in the ginjinn models according to the ![ginjinn2 documentation](https://ginjinn2.readthedocs.io/en/latest/).
 For GPU set ups CUDA 11.8 compatability is required.
 
+Now that ginjinn is installed you need to implement NMS and exchange the original ginjinn with our changed version:
+
+```bash
+
+mv -f /PATH/TO/predictors.py /PATH/TO/conda/envs/ginjinnCPU/lib/python3.7/site-packages/ginjinn/predictor/predictors.py  > /dev/null 2>&1
+
+```
 ## Workflow
 
 If all paths are set and dependiencies are installed you can start the program by:
