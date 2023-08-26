@@ -1,27 +1,32 @@
 ## Daphnia Detection and Analysis: General
 
 Our program is an automated pipeline for scientific analysis of animals of the genus *Daphnia*. Detailed information about development and functionality in PAPERLINK.
-This repository is the non-Docker version. We provide packages with version we installed, but functionality is dependend on the cuda version your system has.
+This repository is the non-Docker version. We provide conda environments with package versions we used, but functionality is dependend on the cuda version you use.
+
+You can find the docker images with instructions ![here](https://hub.docker.com/repository/docker/fipsik/fullimage/general).
+If you came here from docker to get the mounted files: ![Here they are](IRGENDEINEURL) and follow the instructions on the corresponding docker pages.
 
 ![image](https://github.com/Fipsii/DaphniaDetector/blob/main/Zeichnung4.png?raw=true)
 
-For the corresponding docker images go to: #####
-
-If you came here from docker to get the files and folders for the mount: ![Here they are](IRGENDEINEURL) and follow the instructions on the corresponding docker pages.
-If you want to got to docker go to ![CPU-Version](https://hub.docker.com/repository/docker/fipsik/fullimage/general) or ![GPU-Version](PLACEHOLDER).
 
 ## Installation in non Docker format:
 ### Prerequisites 
 
-Environment installation with conda is possible with supplied .yaml files
+This program needs a CUDA capable GPU with at least CUDA 11.8 capability and installation based on our environments.
+Install the two environments in conda with:
 
-Settings.yaml: available at GITHUBLINK
+```bash
+conda env create -f ENVIRONMENT.yml
+```
 
 ## Setup
 
-The first part for the non docker container is to set the paths for models and the settings.
+The first task is to set the paths for models and the settings.
 The GinJinn model .yaml files require you to set the uppermost path according to your system.
 The Paths to images and outputs have to be put into the settingsfile.
+
+
+![image](https://github.com/Fipsii/DaphniaDetector/blob/main/Zeichnung4.png?raw=true)
 
 You have the choice to run the program in CPU (in that case we recommend the CPU docker), where you would have
 to set flags in the ginjinn models according to the ![ginjinn2 documentation](https://ginjinn2.readthedocs.io/en/latest/).
