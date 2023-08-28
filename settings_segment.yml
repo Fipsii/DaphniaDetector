@@ -1,0 +1,96 @@
+### This settings file is used for the
+### docker of the DaphniaDetector
+
+### Toggle if images are JPGs or not		###
+### A folder with JPGs is automatically created ###
+
+Convert_to_JPEG: true
+
+### Body Width True/False                   ###
+### Toggle if body with should be evaluated ###
+### Spina and body length are always on     ###
+
+Body_width_eval: true
+
+### If Body width is to be analyzed set method 						###
+### 3 Options: 										###
+### Rabus (Widest part of body)								###
+### Sperfeld (Width in the middle of eye-spina axis perpendicular to it)		###
+### Imhof (Width in the middle of eye-spina axis perpendicular to the body axis)	###
+
+Width_method: "Imhof"
+
+### Measurements visualisation      ###
+### Visualises all boxes            ###
+### Detected by object detection    ###
+
+visualize: true
+
+### Toggle Cascade PSP refinement ###
+### Refine is strongly encouraged ###
+
+refine: true
+
+### Toggle if and what boxes should be cropped    ### 
+### Delete (#) where cropping should be performed ###
+
+crop: true
+
+organs:
+        #- Heart
+        #- Body
+        #- Head
+        #- Spina_tip
+        #- Spina_base
+        #- Brood_chamber
+        #- Eye
+- Daphnid
+
+### Measurements visualisation  ###
+### Visualises all measurements ###
+### taken in an analysis run    ###
+
+detection_vis: true
+
+### Set Scale detection modes ###
+### and the conversion factor ###
+
+### Conversion_factor mm/px ###
+
+Conv_factor: 0.002139
+
+### Scale_mode          			###
+### 0 = no scale (requires correct conv_factor) ###
+### 1 = uniform scale				###
+### 2 = non-uniform scales 			###
+
+Scale_detector_mode: 2
+
+
+
+### Toggle Species classification ###
+### based on Daphnis crop	  ###
+
+Classify: true
+
+
+#### DO NOT TOUCH AS USER ####
+
+### Locations 				       ###
+
+## Image folder: Reset manually after every Run!
+Original_images: /app/images
+
+## Output folder
+Analysis_data: /app/results_temp
+
+## Classifier folder
+Classifier_loc: /app/Models/Species_Classification
+
+### status flag                                ###
+### Should always be zero except after exiting ###
+### Code to check the bounding boxes           ###
+
+status_flag: 0
+
+##################################################
