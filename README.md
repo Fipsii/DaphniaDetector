@@ -8,8 +8,9 @@ If you came here from docker to get the mounted files: ![Here they are](IRGENDEI
 
 ![image](https://github.com/Fipsii/DaphniaDetector/blob/main/Zeichnung4.png?raw=true)
 
-### Models for CPU and GPU as well as test images can be found ![Here](A_Link) This also includes a folder structure to automatically create new docker images
+Models for CPU and GPU as well as test images can be found ![here](A_Link) This also includes a folder structure to automatically create new docker images
 We recommend developers to use the program without docker and GPU. They need the GPU files and Common Code from Github and the Models from SOMEWHERE.
+
 ## Installation in non Docker format:
 ### Prerequisites 
 
