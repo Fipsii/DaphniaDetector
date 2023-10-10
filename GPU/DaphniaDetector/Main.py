@@ -1,9 +1,8 @@
-### Masterfile from jpg to dataframe with Eigenvector turn and width
-### TO DO YAML data and all options with standard and advanced settings
-### Test runs, Guarantee the import of functions work
-### Clean files as well as useless code and ML Code
-### Write MA
-from math import e
+### GPU Main file
+### Importing functions in the right order
+### Executing Code based on settings
+### Handling of errors and warnings
+
 import time
 import os
 import subprocess
@@ -182,10 +181,12 @@ try:
     except:
       print("WARNING: Skipping body width estimation")
 
-    seg_det_ref_end = time.time()
+    
 
     Measurements = Perform_Chosen_method(settings["Width_method"], Analysis_data + "/segmentation/annotations.json", Analysis_data + "/annotations.csv", Original_Images +"/")
 
+  seg_det_ref_end = time.time()
+  
   ### Here we Merge the data into one Dataframe 
   ### If Classification was performed we add the
   ### coloumn species
