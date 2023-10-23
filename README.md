@@ -15,10 +15,20 @@ We recommend developers to use the program without docker and GPU. They need the
 ### Prerequisites 
 
 This program needs a CUDA capable GPU with at least CUDA 11.8 capability and installation based on our environments.
+
+Before installing the environments we strongly recommended installing libmamba solver:
+
+```bash
+conda install -n base conda-libmamba-solver
+conda config --set solver libmamba
+```
+
 Install the two environments in conda with:
 
 ```bash
-conda env create -f ENVIRONMENT.yml
+conda env create -f environment.yml
+conda env create -f environmentGinJinn.yml
+
 ```
 
 ## Setup
