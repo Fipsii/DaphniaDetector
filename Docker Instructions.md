@@ -65,11 +65,11 @@ Now you have all the goods needed to build the container. The container commands
 This is how the commands should look like for you:
 ### CPU: 
 ```bash
-docker run --name CONTAINERNAME -it -v ${PWD}/images/:/app/images -v ${PWD}/settings_segment.yml:/app/DaphniaDetector/settings_segment.yml -v ${PWD}/results:/app/results fipsik/daphniadetector:cpu /bin/bash
+docker run --name CONTAINERNAME -it -v ${PWD}/images/:/workspace/images -v ${PWD}/settings_segment.yml:/workspace/DaphniaDetector/settings_segment.yml -v ${PWD}/results:/workspace/results fipsik/daphniadetector:cpu /bin/bash
 ```
 ### GPU:
 ```bash
-docker run --name CONTAINERNAME -it --gpus=all -v ${PWD}/images/:/app/images -v ${PWD}/settings_segment.yml:/app/DaphniaDetector/settings_segment.yml -v ${PWD}/results:/app/results fipsik/daphniadetector:gpu /bin/bash
+docker run --name CONTAINERNAME -it --gpus=all -v ${PWD}/images/:/workspace/images -v ${PWD}/settings_segment.yml:/workspace/DaphniaDetector/settings_segment.yml -v ${PWD}/results:/workspace/results fipsik/daphniadetector:gpu /bin/bash
 ```
 
 ### Check GPU Version (Skip this step if you use the CPU version)
@@ -154,7 +154,7 @@ Now you will find you data in the results folder.
 IMPORTANT NOTES:
 
 - Always keep the results folder empty before you start a new analysis
-- If the program is manually quit check the settings.yml settings, it might be necessary to reset the status_flag to 0 and the original_images folder back from /app/JPG to /app/images 
+- If the program is manually quit check the settings.yml settings, it might be necessary to reset the status_flag to 0 and the original_images folder back from /workspace/JPG to /workspace/images 
 
 Credit: Philipp Kropf, Magdalena Mair and Matthias Schott, Corresponding mail: matthias.schott[at]uni-bayreuth.de
 ```
