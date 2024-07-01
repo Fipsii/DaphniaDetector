@@ -77,7 +77,7 @@ docker run --name CONTAINERNAME -it --gpus=all -v ${PWD}/images/:/workspace/imag
 Now you should be in the docker interface, in which you can check if your configuration allows GPU usage with the following command:
 
 ```bash
-bash /Daphniadetector/gpu_check.bash
+bash DaphniaDetector/gpu_check.bash
 ```
 This outputs these messages if successfull:
 
@@ -85,6 +85,7 @@ This outputs these messages if successfull:
 Checking CUDA base installation...
 Finished: CUDA base installation successfull
 
+#This gives an error right now eventhough it works
 Checking base environment...
 Finished: CUDA connected with pytorch
 
@@ -116,7 +117,7 @@ docker start CONTAINERNAME
 ### Start program
 
 ```bash
-docker exec -it CONTAINERNAME /DaphniaDetector/start.bash                                
+docker exec -it CONTAINERNAME DaphniaDetector/start.bash                                
 ```
 
 -it is necessary to interactive with the script messages during the code.
