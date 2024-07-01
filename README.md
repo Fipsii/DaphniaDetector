@@ -1,10 +1,9 @@
 ## Daphnia Detection and Analysis: General
 
 Our program is an automated pipeline for scientific analysis of animals of the genus *Daphnia*. Detailed information about development and functionality in PAPERLINK.
-This repository is the non-Docker version. We provide conda environments with package versions we used, but functionality is dependend on the cuda version you use.
+We provide conda environments with package versions we used, but functionality is dependend on the cuda version you use.
 
-You can find the docker images with instructions ![here](https://hub.docker.com/repository/docker/fipsik/fullimage/general).
-If you came here from docker to get the mounted files: ![Here they are](IRGENDEINEURL) and follow the instructions on the corresponding docker pages.
+You can also find docker images ![here](https://hub.docker.com/repository/docker/fipsik/fullimage/general).
 
 ![image](https://github.com/Fipsii/DaphniaDetector/blob/main/Zeichnung4.png?raw=true)
 
