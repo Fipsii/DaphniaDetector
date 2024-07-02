@@ -1,7 +1,7 @@
 ## Daphnia Detection and Analysis: General
 
 
-### ATTENTION: The Program and site is under heavy construction. We cannot guarantee the accuracy of instruction and full functionality of the code. Please report bugs to [github](https://github.com/Fipsii/DaphniaDetector) or mail (see below). 
+### ATTENTION: The Program and site is under heavy construction. We cannot guarantee the accuracy of instruction and full functionality of the code. Please report bugs here in [github](https://github.com/Fipsii/DaphniaDetector).
 
 Our program is an automated pipeline for scientific analysis of animals of the genus *Daphnia*. Detailed information about development and functionality are in the [paper](dummylink) and [github](https://github.com/Fipsii/DaphniaDetector). 
 
