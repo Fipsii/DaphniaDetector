@@ -13,7 +13,8 @@ Our program either needs a CPU or a GPU with CUDA 11.8 capability and a fitting 
 We also strongly recommend a labelling program for a manual control step.
 
 ## Base concept 
-The program pipeline is designed to take two inputs. A folder containing the images to be analyzed (image folder) and the settings (settings_segment.yaml), which can be downloaded in this github.
+The program pipeline is designed to take two inputs. A folder containing the images to be analyzed (image folder) and the settings (settings_segment.yaml), which can be downloaded in this github at Docker/folders.
+
 All other files will be pulled by docker. Based on these input an output folder will be created (see bottom).
 
 
