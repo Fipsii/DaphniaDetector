@@ -63,6 +63,9 @@ Now you have all the goods needed to build the container. The container commands
 
 
 This is how the commands should look like for you:
+
+Note: CONTAINERNAME should be your desired name of the container. ${PWD} automatically fills your working directory into the path, alternatively enter path manually.
+
 ### CPU: 
 ```bash
 docker run --name CONTAINERNAME -it -v ${PWD}/images/:/workspace/images -v ${PWD}/settings_segment.yml:/workspace/DaphniaDetector/settings_segment.yml -v ${PWD}/results:/workspace/results fipsik/daphniadetector:cpu /bin/bash
