@@ -19,7 +19,7 @@ All other files will be pulled by docker. Based on these input an output folder 
 
 ```
 .../
-├── settings_segment.yaml
+├── settings_segment.yml
 ├── output folder/
 │   └── EMPTY
 └── image folder/
