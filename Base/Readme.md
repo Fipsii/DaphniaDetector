@@ -20,12 +20,18 @@ conda env create -f environmentGinJinn.yml
 
 ## Setup
 
-The first task is to set the paths for models and the settings.
-The GinJinn model .yaml files require you to set the uppermost path according to your system.
-The Paths to images and outputs have to be put into the settingsfile.
+The first task is to get the models and code [here](https://drive.google.com/drive/folders/1f-Cy8brF1IWGREfcxsWaFhh9HCpHBl6m?usp=sharing).
 
+Once downloaded you need a few steps to configure the files to your personal environment:
+
+#### The GinJinn model .yaml files require you to set the uppermost path according to your system.
+
+Set this to the absolute path where you can find the model folders in your system.
+The paths to images and outputs should already be configured for you.
 
 ![image](https://github.com/Fipsii/DaphniaDetector/blob/main/settings_config.png?raw=true)
+
+Optional:
 
 You have the choice to run the program in CPU (in that case we recommend the CPU docker), where you would have
 to set flags in the ginjinn models according to the [ginjinn2 documentation](https://ginjinn2.readthedocs.io/en/latest/).
