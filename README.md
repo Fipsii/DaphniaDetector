@@ -7,7 +7,4 @@ You can also find docker images [here](https://hub.docker.com/repository/docker/
 
 ![image](https://github.com/Fipsii/DaphniaDetector/blob/main/Zeichnung4.png?raw=true)
 
-Models for CPU and GPU as well as test images can be found in this github. This also includes a folder structure to automatically create new docker images
-We recommend developers to use the program without docker and GPU. They need the GPU files and Common Code from Github and the Models from SOMEWHERE.
-
-
+In this github you can find instruction for use and installation on your system either through Docker (Docker) or without (Base). 
