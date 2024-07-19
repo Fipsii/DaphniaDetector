@@ -65,7 +65,7 @@ The code will now start to calculate. After object detection that should be chec
 Do you want to check your labels? This is highly advised. Extract your data from {Analysis_data} [y(es)/n(o)/c(ancel)]:          
 ```
 
-Yes is the advised option which stops the code and allows to check data in a labelling program of your choice (we used ![CVAT](https://www.cvat.ai/)
+Yes is the advised option which stops the code and allows to check data in a labelling program of your choice (we used [CVAT](https://www.cvat.ai/)
 
 After checking the data and getting a new annotations.json you have to replace the old annotations.json in the results folder. Now you can rexecute the code with:
 
