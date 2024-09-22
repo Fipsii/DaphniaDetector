@@ -79,7 +79,7 @@ Classify: true
 ### Locations 				       ###
 
 ## Image folder: 
-Original_images: /workspace/JPG
+Original_images: /workspace/images
 
 ## Output folder
 Analysis_data: /workspace/results_temp
