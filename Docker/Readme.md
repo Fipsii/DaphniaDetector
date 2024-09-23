@@ -159,7 +159,8 @@ Now you will find you data in the results folder.
 IMPORTANT NOTES:
 
 - Always keep the results folder empty before you start a new analysis
-- If the program is manually quit check the settings.yml settings, it might be necessary to reset the status_flag to 0 and the original_images folder back from /workspace/JPG to /workspace/images 
+- If the program is manually quit check the settings.yml settings, it might be necessary to reset the status_flag to 0 and the original_images folder back from /workspace/JPG to /workspace/images
+- If picture are not mirrored onto the host system try ```sudo service docker restart ```
 
 Credit: Philipp Kropf, Magdalena Mair and Matthias Schott, Corresponding mail: matthias.schott[at]uni-bayreuth.de
 ```
