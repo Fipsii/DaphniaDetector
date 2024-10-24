@@ -69,11 +69,11 @@ Note: CONTAINERNAME should be your desired name of the container. ${PWD} automat
 
 ### CPU: 
 ```bash
-docker run --user --name CONTAINERNAME -it -v ${PWD}/images/:/workspace/images -v ${PWD}/settings_segment.yml:/workspace/DaphniaDetector/settings_segment.yml -v ${PWD}/results:/workspace/results fipsik/daphniadetector:cpu /bin/bash
+docker run --name CONTAINERNAME -it -v ${PWD}/images/:/workspace/images -v ${PWD}/settings_segment.yml:/workspace/DaphniaDetector/settings_segment.yml -v ${PWD}/results:/workspace/results fipsik/daphniadetector:cpu /bin/bash
 ```
 ### GPU:
 ```bash
-docker run --user --name CONTAINERNAME -it --gpus=all -v ${PWD}/images/:/workspace/images -v ${PWD}/settings_segment.yml:/workspace/DaphniaDetector/settings_segment.yml -v ${PWD}/results:/workspace/results fipsik/daphniadetector:gpu /bin/bash
+docker run --name CONTAINERNAME -it --gpus=all -v ${PWD}/images/:/workspace/images -v ${PWD}/settings_segment.yml:/workspace/DaphniaDetector/settings_segment.yml -v ${PWD}/results:/workspace/results fipsik/daphniadetector:gpu /bin/bash
 ```
 
 ### Check GPU Version (Skip this step if you use the CPU version)
