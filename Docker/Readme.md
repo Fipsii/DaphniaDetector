@@ -133,8 +133,9 @@ The code will now start to calculate. You will get the question:
 Do you want to check your labels? This is highly advised. Extract your data from {Analysis_data} [y(es)/n(o)/c(ancel)]:          
 ```
 
-Yes is the advised option which stops the code mirrors contents into the result mount. And allows the user to manually
-check the bounding box data for errors.
+It is the advised to check the labels, which stops the code exports contents into the result mount. The results (with COCO annotations) can then be imported
+in a label program of your choice, in which you can correct mistakes an evaluate the accuracy of your dataset
+
 
 After checking the data and getting a new annotations.json you have to replace the old annotations.json in the results folder.
 
